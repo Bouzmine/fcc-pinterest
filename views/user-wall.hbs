@@ -1,0 +1,48 @@
+<h2>Your wall</h2>
+
+<div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200, "gutter": 10 }'>
+    {{#each images}}
+        <div class="grid-item">
+            <img src="{{ url }}" alt="" onError="this.onerror=null;this.src='https://blog.stylingandroid.com/wp-content/themes/lontano-pro/images/no-image-slide.png';"></img>
+            <h5>{{ description }}</h5>
+            <a href="/api/delete/{{ _id }}"><button class="btn btn-danger btn-block">Delete</button></a>
+        </div>
+    {{/each}}
+</div>
+
+<style>
+.grid {
+  max-width: 1200px;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-item {
+  width: 200px;
+  float: left;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #eee;
+  box-shadow: 0 0 4px;
+  margin-bottom: 10px;
+}
+
+.grid-item img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.grid-item button {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+img {
+    width: 100%;
+}
+</style>
